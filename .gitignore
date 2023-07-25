@@ -400,3 +400,5 @@ node_modules
 # System files
 *.log
 
+
+**/*.json
