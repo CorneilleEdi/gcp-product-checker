@@ -20,6 +20,10 @@ if regions_table:
         # td.text can just be used
         row_data = [" ".join(td.text.replace('\n', '').split()) for td in row.select("td")]
         row_dict = dict(zip(headers, row_data))
+
+        # Change the ley 'Zones'  to 'Zone'
+        row_dict['Zone'] = row_dict.pop('Zones')
+
         table_data.append(row_dict)
     zones = table_data
 else:
@@ -29,7 +33,7 @@ regions = []
 for zone in zones:
     if not any(region['Location'] == zone['Location'] for region in regions):
         regions.append({
-            'Region': zone['Zones'][:-2],
+            'Region': zone['Zone'][:-2],
             'Location': zone['Location'],
             'Zones': [zone]
         })
