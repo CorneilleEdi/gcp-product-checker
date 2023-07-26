@@ -98,6 +98,8 @@ for continent in CONTINENTS:
                             # Extract the availability for each region in the row
                             availability_data = row.find_all("span", class_="region-availability")
 
+                            # Not very happy with the fact that I am using the aria-label attribute to get the
+                            # availability. I would prefer to use the class attribute, but it works for now.
                             availability = [span["aria-label"] for span in availability_data]
 
                             try:
